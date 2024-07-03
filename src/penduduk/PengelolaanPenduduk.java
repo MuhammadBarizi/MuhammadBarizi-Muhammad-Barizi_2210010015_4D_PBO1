@@ -43,11 +43,26 @@ public class PengelolaanPenduduk {
     }
 
     private static void tambahPenduduk(Scanner scanner) {
+
         try {
             System.out.print("Masukkan Nama: ");
             String nama = scanner.nextLine();
-            System.out.print("Masukkan NIK: ");
-            String nik = scanner.nextLine();
+
+            // Check if nama contains numbers
+            if (nama.matches(".*\\d.*")) {
+                throw new IllegalArgumentException("Nama tidak boleh mengandung angka.");
+            }
+
+           
+        System.out.print("Masukkan NIK: ");
+        String nik = scanner.nextLine();
+        if (nik.length() != 12) {
+            throw new IllegalArgumentException("NIK harus 12 digit dan angka.");
+        }
+        if (nik.matches(".*\\d.*")) {
+                throw new IllegalArgumentException("Nama tidak boleh mengandung huruf .");
+            }
+        
             System.out.print("Masukkan Alamat: ");
             String alamat = scanner.nextLine();
             System.out.print("Masukkan Tanggal Lahir (yyyy-mm-dd): ");
@@ -106,4 +121,4 @@ public class PengelolaanPenduduk {
     private static boolean isDewasa(String nik) {
         return nik.length() > 12;
     }
-} 
+}
