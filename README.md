@@ -41,10 +41,10 @@ PendudukAnak pendudukAnak = new PendudukAnak(nama, nik, alamat, tanggalLahir, na
 3. **Atribut** adalah variabel yang ada dalam class. Pada kode ini, `nama`, `nik`, `alamat`, `tanggalLahir`  adalah contoh atribut.
 
 ```bash
-    private String nama;
-    private String nik;
-    private String alamat;
-    private String tanggalLahir;
+     String nama;
+     String nik;
+     String alamat;
+     String tanggalLahir;
 ```
 
 4. **Constructor** adalah method yang pertama kali dijalankan pada saat pembuatan object. Pada kode ini, constructor ada di dalam class `Mahasiswa` dan `MahasiswaDetail`.
@@ -111,39 +111,62 @@ public PendudukAnak(String nama, String nik, String alamat, String tanggalLahir,
 
 ```
 
-6. **Accessor** atau getter digunakan untuk mengambil nilai dari suatu atribut. Pada kode ini, `getNama`, `getNpm`, `getTahunMasuk`, `getFakultas`, `getProdi`, dan `getNoRegistrasi` adalah contoh method accessor.
+6. **Accessor** atau getter digunakan untuk mengambil nilai dari suatu atribut. Pada kode ini, `getNama`, `getNik`, `getAlamat`, `getTanggalLahir`, `displayInfo`, dan `getNoRegistrasi` adalah contoh method accessor.
 
 ```bash
-public String getNama() {
-    return nama;
-}
+ public String getNama() {
+        return nama;
+    }
 
-public String getNpm() {
-    return npm;
-}
+    public String getNik() {
+        return nik;
+    }
+
+    public String getAlamat() {
+        return alamat;
+    }
+
+    public String getTanggalLahir() {
+        return tanggalLahir;
+    }
+
+    public String displayInfo() {
+        return "Nama: " + nama
+                + "\nNIK: " + nik
+                + "\nAlamat: " + alamat
+                + "\nTanggal Lahir: " + tanggalLahir;
+    }
 ```
 
 7. **Encapsulation** adalah konsep menyembunyikan data dengan membuat atribut menjadi private dan hanya bisa diakses melalui method. Pada kode ini, atribut `nama` dan `npm` dienkapsulasi dan hanya bisa diakses melalui method getter dan setter.
 
 ```bash
-private String nama;
-private String npm;
+    private String nama;
+    private String nik;
+    private String alamat;
+    private String tanggalLahir;
 ```
 
-8. **Inheritance** adalah konsep di mana sebuah class bisa mewarisi property dan method dari class lain. Pada kode ini, `MahasiswaDetail` mewarisi `Mahasiswa` dengan sintaks `extends`.
+8. **Inheritance** adalah konsep di mana sebuah class bisa mewarisi property dan method dari class lain. Pada kode ini, `PendudukAnak` `dan` `PendudukDewasa`  mewarisi `Penduduk` dengan sintaks `extends`.
 
 ```bash
-public class MahasiswaDetail extends Mahasiswa {
+public class PendudukAnak extends Penduduk {
+    ...
+}
+public class PendudukDewasa extends Penduduk {
     ...
 }
 ```
 
-9. **Polymorphism** adalah konsep di mana sebuah nama dapat digunakan untuk merujuk ke beberapa tipe atau bentuk objek berbeda. Ini memungkinkan metode-metode dengan nama yang sama untuk berperilaku berbeda tergantung pada tipe objek yang mereka manipulasi, polymorphism bisa berbentuk Overloading ataupun Overriding. Pada kode ini, method `displayInfo(String)` di `Mahasiswa` merupakan overloading method `displayInfo` dan `displayInfo` di `MahasiswaDetail` merupakan override dari method `displayInfo` di `Mahasiswa`.
+9. **Polymorphism** adalah konsep di mana sebuah nama dapat digunakan untuk merujuk ke beberapa tipe atau bentuk objek berbeda. Ini memungkinkan metode-metode dengan nama yang sama untuk berperilaku berbeda tergantung pada tipe objek yang mereka manipulasi, polymorphism bisa berbentuk Overloading ataupun Overriding. Pada kode ini, method `displayInfo(String)` di `Mahasiswa` merupakan overloading method `displayInfo` dan `displayInfo` di `PendudukAnak` `dan` `PendudukDewasa` merupakan override dari method `displayInfo` di `Penduduk`.
 
 ```bash
-public String displayInfo(String kelas) {
-    return displayInfo() + "\nKelas: " + kelas;
-}
+public String displayInfo() {
+        return "Nama: " + nama
+                + "\nNIK: " + nik
+                + "\nAlamat: " + alamat
+                + "\nTanggal Lahir: " + tanggalLahir;
+    }
 
 @Override
 public String displayInfo() {
@@ -151,37 +174,139 @@ public String displayInfo() {
 }
 ```
 
-10. **Seleksi** adalah statement kontrol yang digunakan untuk membuat keputusan berdasarkan kondisi. Pada kode ini, digunakan seleksi `if else` dalam method `getFakultas` dan seleksi `switch` dalam method `getProdi`.
+10. **Seleksi** adalah statement kontrol yang digunakan untuk membuat keputusan berdasarkan kondisi. Pada kode ini, digunakan seleksi `if else` dalam class method ` private static void tambahPenduduk(Scanner scanner)` `,` ` private static void tampilkanSemuaPenduduk()` , ` private static void cariPenduduk(Scanner scanner) ` lalu ` `seleksi `Switch` `di` `int pilihan = scanner.nextInt();` dalam class `PengelolaanPenduduk`.
 
 ```bash
 public String getFakultas() {
-    if(getNpm().substring(2, 4).equals("10")){
-        return "Teknologi Informasi";
-    } else {
-        return "Fakultas lain";
+ public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("=== Pengelolaan Data Penduduk ===");
+            System.out.println("1. Tambah Data Penduduk");
+            System.out.println("2. Tampilkan Semua Data Penduduk");
+            System.out.println("3. Cari Penduduk Berdasarkan NIK");
+            System.out.println("4. Keluar");
+            System.out.print("Pilih opsi (1/2/3/4): ");
+            int pilihan = scanner.nextInt();
+            scanner.nextLine(); // Membersihkan newline
+
+            try {
+                switch (pilihan) {
+                    case 1 ->
+                        tambahPenduduk(scanner);
+                    case 2 ->
+                        tampilkanSemuaPenduduk();
+                    case 3 ->
+                        cariPenduduk(scanner);
+                    case 4 -> {
+                        System.out.println("Keluar dari aplikasi.");
+                        return;
+                    }
+                    default ->
+                        System.out.println("Opsi tidak valid. Silakan coba lagi.");
+                }
+            } catch (Exception e) {
+                System.out.println("Terjadi kesalahan: " + e.getMessage());
+            }
+        }
     }
 
-    //return getNpm().substring(2, 4).equals("10") ? "Teknologi Informasi" : "Fakultas lain";
-}
+    private static void tambahPenduduk(Scanner scanner) {
+        try {
+            System.out.print("Masukkan Nama: ");
+            String nama = scanner.nextLine();
+            System.out.print("Masukkan NIK: ");
+            String nik = scanner.nextLine();
+            System.out.print("Masukkan Alamat: ");
+            String alamat = scanner.nextLine();
+            System.out.print("Masukkan Tanggal Lahir (yyyy-mm-dd): ");
+            String tanggalLahir = scanner.nextLine();
 
-public String getProdi() {
-    switch(getNpm().substring(4, 6)) {
-        case "01":
-            return "Teknik Informatika";
-        case "02":
-            return "Sistem Informasi";
-        default:
-            return "Prodi lain";
+            if (isDewasa(nik)) {
+                System.out.print("Masukkan Pekerjaan: ");
+                String pekerjaan = scanner.nextLine();
+                PendudukDewasa pendudukDewasa = new PendudukDewasa(nama, nik, alamat, tanggalLahir, pekerjaan);
+                daftarPenduduk.add(pendudukDewasa);
+                System.out.println("Data Penduduk Dewasa berhasil ditambahkan.\n");
+            } else {
+                System.out.print("Masukkan Nama Orang Tua: ");
+                String namaOrangTua = scanner.nextLine();
+                System.out.print("Masukkan Nama Sekolah: ");
+                String sekolah = scanner.nextLine();
+                PendudukAnak pendudukAnak = new PendudukAnak(nama, nik, alamat, tanggalLahir, namaOrangTua, sekolah);
+                daftarPenduduk.add(pendudukAnak);
+                System.out.println("Data Penduduk Anak berhasil ditambahkan.\n");
+            }
+
+        } catch (IllegalArgumentException e) {
+            System.out.println("Input tidak valid: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Kesalahan Umum: " + e.getMessage());
+        }
+
     }
-}
+
+    private static void tampilkanSemuaPenduduk() {
+        if (daftarPenduduk.isEmpty()) {
+            System.out.println("Tidak ada data penduduk yang terdaftar.");
+        } else {
+            for (Penduduk penduduk : daftarPenduduk) {
+                System.out.println(penduduk.displayInfo());
+                System.out.println("-----------------------");
+            }
+        }
+    }
+
+    private static void cariPenduduk(Scanner scanner) {
+
+        System.out.print("Masukkan NIK yang ingin dicari: ");
+        String nik = scanner.nextLine();
+
+        for (Penduduk penduduk : daftarPenduduk) {
+            if (penduduk.getNik().equals(nik)) {
+                System.out.println("Data Penduduk Ditemukan:");
+                System.out.println(penduduk.displayInfo());
+                return;
+            }
+        }
+        System.out.println("Penduduk dengan NIK " + nik + " tidak ditemukan.");
+    }
 ```
 
 11. **Perulangan** adalah statement kontrol yang digunakan untuk menjalankan blok kode berulang kali. Pada kode ini, digunakan loop `for` untuk meminta input dan menampilkan data.
 
 ```bash
-for (int i = 0; i < mahasiswas.length; i++) {
+ while (true) {
+            System.out.println("=== Pengelolaan Data Penduduk ===");
+            System.out.println("1. Tambah Data Penduduk");
+            System.out.println("2. Tampilkan Semua Data Penduduk");
+            System.out.println("3. Cari Penduduk Berdasarkan NIK");
+            System.out.println("4. Keluar");
+            System.out.print("Pilih opsi (1/2/3/4): ");
+            int pilihan = scanner.nextInt();
+            scanner.nextLine(); // Membersihkan newline
     ...
 }
+```bash
+ for (Penduduk penduduk : daftarPenduduk) {
+                System.out.println(penduduk.displayInfo());
+                System.out.println("-----------------------");
+            }
+    ...
+}
+```
+
+```bash
+for (Penduduk penduduk : daftarPenduduk) {
+            if (penduduk.getNik().equals(nik)) {
+                System.out.println("Data Penduduk Ditemukan:");
+                System.out.println(penduduk.displayInfo());
+                return;
+            }
+        }
+        System.out.println("Penduduk dengan NIK " + nik + " tidak ditemukan.");
+    }
 ```
 
 12. **Input Output Sederhana** digunakan untuk menerima input dari user dan menampilkan output ke user. Pada kode ini, digunakan class `Scanner` untuk menerima input dan method `System.out.println` untuk menampilkan output.
