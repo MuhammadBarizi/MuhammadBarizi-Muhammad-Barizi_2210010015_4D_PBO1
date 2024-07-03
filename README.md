@@ -74,16 +74,41 @@ public PendudukAnak(String nama, String nik, String alamat, String tanggalLahir,
      `setNik`,
      `setAlamat`,
       `setTanggalLahir`,
+       mutator di class PendudukDewasa
+       `setPEkerjaan`,
+       mutator di class Pendudukanak
+       `setOrangTua`,
+        `setSekolah`
        adalah contoh method mutator.
 
 ```bash
-public void setNama(String nama) {
-    this.nama = nama;
-}
+  public void setNama(String nama) {
+        this.nama = nama;
+    }
 
-public void setNpm(String npm) {
-    this.npm = npm;
-}
+    public void setNik(String nik) {
+        this.nik = nik;
+    }
+
+    public void setAlamat(String alamat) {
+        this.alamat = alamat;
+    }
+
+    public void setTanggalLahir(String tanggalLahir) {
+        this.tanggalLahir = tanggalLahir;
+    
+     public void setPekerjaan(String pekerjaan) {
+        this.pekerjaan = pekerjaan;
+    }
+
+     public void setNamaOrangTua(String namaOrangTua) {
+        this.namaOrangTua = namaOrangTua;
+    }
+
+    public void setSekolah(String sekolah) {
+        this.sekolah = sekolah;
+    }
+
 ```
 
 6. **Accessor** atau getter digunakan untuk mengambil nilai dari suatu atribut. Pada kode ini, `getNama`, `getNpm`, `getTahunMasuk`, `getFakultas`, `getProdi`, dan `getNoRegistrasi` adalah contoh method accessor.
