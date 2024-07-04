@@ -1,8 +1,8 @@
 package penduduk;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
-import penduduk.Penduduk;
 
 public class PengelolaanPenduduk {
 
@@ -18,10 +18,11 @@ public class PengelolaanPenduduk {
             System.out.println("3. Cari Penduduk Berdasarkan NIK");
             System.out.println("4. Keluar");
             System.out.print("Pilih opsi (1/2/3/4): ");
-            int pilihan = scanner.nextInt();
-            scanner.nextLine(); // Membersihkan newline
 
             try {
+                int pilihan = scanner.nextInt();
+                scanner.nextLine(); 
+
                 switch (pilihan) {
                     case 1 ->
                         tambahPenduduk(scanner);
@@ -36,6 +37,9 @@ public class PengelolaanPenduduk {
                     default ->
                         System.out.println("Opsi tidak valid. Silakan coba lagi.");
                 }
+            } catch (InputMismatchException e) {
+                System.out.println("Input tidak valid. Harap masukkan angka 1, 2, 3, atau 4.");
+                scanner.nextLine(); 
             } catch (Exception e) {
                 System.out.println("Terjadi kesalahan: " + e.getMessage());
             }
@@ -43,26 +47,21 @@ public class PengelolaanPenduduk {
     }
 
     private static void tambahPenduduk(Scanner scanner) {
-
         try {
             System.out.print("Masukkan Nama: ");
             String nama = scanner.nextLine();
 
-            // Check if nama contains numbers
             if (nama.matches(".*\\d.*")) {
                 throw new IllegalArgumentException("Nama tidak boleh mengandung angka.");
             }
 
-           
-        System.out.print("Masukkan NIK: ");
-        String nik = scanner.nextLine();
-        if (nik.length() != 12) {
-            throw new IllegalArgumentException("NIK harus 12 digit dan angka.");
-        }
-        if (nik.matches(".*\\d.*")) {
-                throw new IllegalArgumentException("Nama tidak boleh mengandung huruf .");
+            System.out.print("Masukkan NIK: ");
+            String nik = scanner.nextLine();
+
+            if (!nik.matches("\\d{12}")) {
+                throw new IllegalArgumentException("NIK harus 12 digit dan angka.");
             }
-        
+
             System.out.print("Masukkan Alamat: ");
             String alamat = scanner.nextLine();
             System.out.print("Masukkan Tanggal Lahir (yyyy-mm-dd): ");
@@ -89,7 +88,6 @@ public class PengelolaanPenduduk {
         } catch (Exception e) {
             System.out.println("Kesalahan Umum: " + e.getMessage());
         }
-
     }
 
     private static void tampilkanSemuaPenduduk() {
@@ -104,10 +102,14 @@ public class PengelolaanPenduduk {
     }
 
     private static void cariPenduduk(Scanner scanner) {
-
         System.out.print("Masukkan NIK yang ingin dicari: ");
         String nik = scanner.nextLine();
 
+        if (!nik.matches("\\d{12}")) {
+            System.out.println("NIK yang anda tulis tidak sesuai!.");
+            return;
+        }
+ 
         for (Penduduk penduduk : daftarPenduduk) {
             if (penduduk.getNik().equals(nik)) {
                 System.out.println("Data Penduduk Ditemukan:");
