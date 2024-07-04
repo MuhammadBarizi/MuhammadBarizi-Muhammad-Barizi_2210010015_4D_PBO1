@@ -1,10 +1,34 @@
 # Proyek Akhir Pemrograman Berbasis Objek 1
 
 Proyek ini adalah contoh sederhana aplikasi pengolahan data mahasiswa menggunakan Java sebagai tugas akhir dari mata kuliah pemrograman berbasis objek 1.
-
+`Jika nik tidak sampai 16 digit maka menjadi Data Anak`
 ## Deskripsi
+=== Pengelolaan Data Penduduk ===
+Aplikasi ini menerima input berupa 1. Tambah Data Penduduk, 2. Tampilkan Semua Data Penduduk, 3. Cari Penduduk Berdasarkan NIK, 4. Keluar, dan memberikan output berupa informasi detail dari Pilih opsi (1/2/3/4): 1
+Masukkan Nama: Barizi
+Masukkan NIK: 123456789111
+Masukkan Alamat: Martapura
+Masukkan Tanggal Lahir (yyyy-mm-dd): 2003-10-08
+Masukkan Nama Orang Tua: Ariani
+Masukkan Nama Sekolah: SMK Cendana DDI Samarinda
+Data Penduduk Anak berhasil ditambahkan.
+tersebut seperti tahun Nama, NIK, Alamat, Tanggal Lahir, Nama Orang Tua, Nama Sekolah.
 
-Aplikasi ini menerima input berupa nama dan NPM mahasiswa, dan memberikan output berupa informasi detail dari NPM tersebut seperti tahun masuk, fakultas, program studi, dan nomor registrasi.
+`Jika data nik lebih dari 16 maka data menjadi data penduduk`
+=== Pengelolaan Data Penduduk ===
+1. Tambah Data Penduduk
+2. Tampilkan Semua Data Penduduk
+3. Cari Penduduk Berdasarkan NIK
+4. Keluar
+Pilih opsi (1/2/3/4): 1
+Masukkan Nama: Syaifuiddin
+Masukkan NIK: 123456789111111
+Masukkan Alamat: Martapura
+Masukkan Tanggal Lahir (yyyy-mm-dd): 1989-10-08
+Masukkan Pekerjaan: Petani
+Data Penduduk Dewasa berhasil ditambahkan.
+
+
 
 Aplikasi ini mengimplementasikan beberapa konsep penting dalam pemrograman berorientasi objek (OOP) seperti Class, Object, Atribut, Method Constructor, Method Mutator, Method Accessor, Encapsulation, Inheritance, Overloading, Overriding, Seleksi, Perulangan, IO Sederhana, Array, dan Error Handling.
 
@@ -323,7 +347,29 @@ System.out.println(mahasiswa.displayInfo());
 13. **Array** adalah struktur data yang digunakan untuk menyimpan beberapa nilai dalam satu variabel. Pada kode ini, `MahasiswaDetail[] mahasiswas = new MahasiswaDetail[2];` adalah contoh penggunaan array.
 
 ```bash
-MahasiswaDetail[] mahasiswas = new MahasiswaDetail[2];
+   private static ArrayList<Penduduk> daftarPenduduk = new ArrayList<>();
+```
+```bash
+ private static void tampilkanSemuaPenduduk() {
+        if (daftarPenduduk.isEmpty()) {
+            System.out.println("Tidak ada data penduduk yang terdaftar.");
+        } else {
+            for (Penduduk penduduk : daftarPenduduk) {
+                System.out.println(penduduk.displayInfo());
+                System.out.println("-----------------------");
+            }
+        }
+    }
+```
+
+```bash
+ for (Penduduk penduduk : daftarPenduduk) {
+            if (penduduk.getNik().equals(nik)) {
+                System.out.println("Data Penduduk Ditemukan:");
+                System.out.println(penduduk.displayInfo());
+                return;
+            }
+        }
 ```
 
 14. **Error Handling** digunakan untuk menangani error yang mungkin terjadi saat runtime. Pada kode ini, digunakan `try catch` untuk menangani error.
@@ -335,6 +381,8 @@ try {
     System.out.println("Error: " + e.getMessage());
 }
 ```
+
+
 
 ## Usulan nilai
 
