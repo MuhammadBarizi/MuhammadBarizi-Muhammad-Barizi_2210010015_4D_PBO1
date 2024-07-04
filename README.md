@@ -5,6 +5,10 @@ Proyek ini adalah contoh sederhana aplikasi pengolahan data mahasiswa menggunaka
 ## Deskripsi
 Aplikasi ini mengimplementasikan beberapa konsep penting dalam pemrograman berorientasi objek (OOP) seperti Class, Object, Atribut, Method Constructor, Method Mutator, Method Accessor, Encapsulation, Inheritance, Overloading, Overriding, Seleksi, Perulangan, IO Sederhana, Array, dan Error Handling.
 `Jika nik tidak sampai 16 digit maka menjadi Data Anak`
+
+
+
+
 === Pengelolaan Data Penduduk ===
 Aplikasi ini menerima input berupa 1. Tambah Data Penduduk, 2. Tampilkan Semua Data Penduduk, 3. Cari Penduduk Berdasarkan NIK, 4. Keluar, dan memberikan output berupa informasi detail dari Pilih opsi (1/2/3/4): 1
 Masukkan Nama: Barizi
