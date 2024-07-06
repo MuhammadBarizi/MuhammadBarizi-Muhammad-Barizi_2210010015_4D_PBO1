@@ -47,9 +47,9 @@ public class Penduduk {
     }
 
     public String displayInfo() {
-        return "Nama: " + nama
-                + "\nNIK: " + nik
-                + "\nAlamat: " + alamat
-                + "\nTanggal Lahir: " + tanggalLahir;
+        return "Nama: " + getNama()
+                + "\nNIK: " + getNik()
+                + "\nAlamat: " + getAlamat()
+                + "\nTanggal Lahir: " + getTanggalLahir();
     }
 }
