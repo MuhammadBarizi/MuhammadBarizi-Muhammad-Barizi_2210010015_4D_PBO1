@@ -349,7 +349,7 @@ System.out.println("\nData Mahasiswa:");
 System.out.println(mahasiswa.displayInfo());
 ```
 
-13. **Array** adalah struktur data yang digunakan untuk menyimpan beberapa nilai dalam satu variabel. Pada kode ini, `MahasiswaDetail[] mahasiswas = new MahasiswaDetail[2];` adalah contoh penggunaan array.
+13. **Array** adalah struktur data yang digunakan untuk menyimpan beberapa nilai list data penduduk dalam satu variabel yaitu penduduk. Pada kode ini, ` private static ArrayList<Penduduk> daftarPenduduk = new ArrayList<>();;` adalah contoh penggunaan array.
 
 ```bash
    private static ArrayList<Penduduk> daftarPenduduk = new ArrayList<>();
