@@ -1,8 +1,11 @@
 package penduduk;
 
+
+
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
 
 public class PengelolaanPenduduk {
 
@@ -55,13 +58,13 @@ public class PengelolaanPenduduk {
                 throw new IllegalArgumentException("Nama tidak boleh mengandung angka.");
             }
 
-            System.out.print("Masukkan NIK: ");
-            String nik = scanner.nextLine();
 
-            if (!nik.matches("\\d{12}")) {
+        System.out.print("Masukkan NIK: ");
+        String nik = scanner.nextLine();
+
+       if (!nik.matches(".*\\d.*")) {
                 throw new IllegalArgumentException("NIK harus 12 digit dan angka.");
-            }
-
+       }
             System.out.print("Masukkan Alamat: ");
             String alamat = scanner.nextLine();
             System.out.print("Masukkan Tanggal Lahir (yyyy-mm-dd): ");
@@ -105,7 +108,7 @@ public class PengelolaanPenduduk {
         System.out.print("Masukkan NIK yang ingin dicari: ");
         String nik = scanner.nextLine();
 
-        if (!nik.matches("\\d{12}")) {
+        if (!nik.matches(".*\\d.*")) {
             System.out.println("NIK yang anda tulis tidak sesuai!.");
             return;
         }
