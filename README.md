@@ -409,6 +409,10 @@ try {
 | 14  | Error Handling |   15    |
 |     | **TOTAL**      | **100** |
 
+Kalo saya ingin 100 sih pak, tapi tidak tau menurut bapak, apakah saya dengan syarat tertentu untuk mendapatkan 100 menurut bapak.
+Terimakasih Pak Telah Memberikan Tenggat Waktu yang sangat banyak dan motivasi, untuk itu saya akan berjanji saya ingin menjadi dosen/programmer/pengusaha
+saya akan terus belajar pak, yaitu banyak mencobaa.
+
 ## Pembuat
 
 Nama: Muhammad Barizi
